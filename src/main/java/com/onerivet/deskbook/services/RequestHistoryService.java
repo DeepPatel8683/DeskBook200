@@ -8,6 +8,6 @@ import com.onerivet.deskbook.models.payload.RequestHistoryDto;
 public interface RequestHistoryService {
 
 	
-	public List<RequestHistoryDto> getRequestHistory(String id);
+public List<RequestHistoryDto> getRequestHistory(int seatId );
 
 }

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.onerivet.deskbook.models.entity.Employee;
+import com.onerivet.deskbook.models.entity.SeatNumber;
 import com.onerivet.deskbook.models.entity.SeatRequest;
 import com.onerivet.deskbook.models.payload.RequestHistoryDto;
 import com.onerivet.deskbook.models.entity.SeatRequest;
@@ -41,7 +42,7 @@ public interface SeatRequestRepo extends JpaRepository<SeatRequest, Integer> {
 //			+ "WHERE E.employeeId =:employeeId")
 	public List<RequestHistoryDto> findRequestHiById(String  EmployeeId);
 	
-	@Query(value = "SELECT sr FROM SeatRequest sr WHERE sr.seat =:seat")
-	public List<SeatRequest> findRequestHistoryById(Employee employee);
+	@Query(value = "SELECT sr FROM SeatRequest sr WHERE sr.seatNumber =:seatNumber")
+	public List<SeatRequest> findRequestHistoryById(SeatNumber seatNumber);
 
 }

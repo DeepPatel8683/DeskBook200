@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.onerivet.deskbook.models.entity.Employee;
+import com.onerivet.deskbook.models.entity.SeatNumber;
 import com.onerivet.deskbook.models.entity.SeatRequest;
 import com.onerivet.deskbook.models.payload.RequestHistoryDto;
 import com.onerivet.deskbook.repository.ColumnDetailsRepo;
@@ -34,13 +35,13 @@ public class RequestHistoryImpl  implements RequestHistoryService{
 	
 
 	@Override
-	public List<RequestHistoryDto> getRequestHistory(String id) {
+	public List<RequestHistoryDto> getRequestHistory(int seatId) {
 		
 	//	return this.seatRequestRepo.findRequestHistoryById(id).stream().map((rh) -> this.modelMapper.map(rh, RequestHistoryDto.class)).collect(Collectors.toList());
 		
 		
 		
-		List<SeatRequest> sr =this.seatRequestRepo.findRequestHistoryById(new Employee(id));
+		List<SeatRequest> sr =this.seatRequestRepo.findRequestHistoryById(new SeatNumber(seatId));
 		
 		
 		RequestHistoryDto requestHistoryDto = new RequestHistoryDto();

@@ -26,8 +26,8 @@ public class RequestHistoryController {
 	private RequestHistoryService requestHistoryService;
 	
 	@GetMapping("/requesthistory")
-	public GenericResponse<List<RequestHistoryDto>>  getReqestHistory(Principal principal){
-		GenericResponse<List<RequestHistoryDto>> genericResponse = new GenericResponse<>(this.requestHistoryService.getRequestHistory(principal.getName()), null);
+	public GenericResponse<List<RequestHistoryDto>>  getReqestHistory(int seatId){
+		GenericResponse<List<RequestHistoryDto>> genericResponse = new GenericResponse<>(this.requestHistoryService.getRequestHistory(seatId), null);
 		return genericResponse;
 		
 		
